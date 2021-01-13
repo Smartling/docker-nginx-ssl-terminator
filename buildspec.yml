@@ -4,7 +4,7 @@ phases:
     commands:
       - COMMIT=$(git rev-parse --short HEAD)
       - CONTAINER="docker-nginx-ssl-terminator"
-      - REPO="373682980683.dkr.ecr.us-east-1.amazonaws.com/docker-nginx-ssl-terminator"
+      - REPO="373682980683.dkr.ecr.us-east-1.amazonaws.com"
       - LOGIN=`aws ecr get-login --region us-east-1 --no-include-email`
       - $LOGIN
       - docker build -t ${CONTAINER}:${COMMIT} . && docker tag ${CONTAINER}:${COMMIT} ${REPO}/${CONTAINER}:${COMMIT}
